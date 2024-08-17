@@ -21,6 +21,14 @@ on:
         required: true
         default: 'v1.0.0'
         type: string
+      ChoiceVersion:
+        description: 'Select a Tag Version'
+        required: true
+        type: choice
+        options:
+          - v1.0.0
+          - v1.0.1
+          - v1.0.2
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
