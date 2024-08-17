@@ -6,5 +6,5 @@ resources:
   #- deploy/ingress.yaml
 
 images:
-  - name: cepgstapacr.azurecr.io/82023066/healthcheck
+  - name: tiuaxcoetmpacr.azurecr.io/82023066/healthcheck
     newTag: v1.0.2
