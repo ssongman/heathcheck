@@ -44,7 +44,7 @@ jobs:
 
       - name: Log in to Azure Container Registry
         run: |
-          echo ${{ secrets.AZURE_CLIENT_SECRET }} | docker login ${{ vars.ACR_NAME }}.azurecr.io -u ${{ secrets.AZURE_CLIENT_ID }} --password-stdin
+          echo ${{ secrets.AZURE_CLIENT_SECRET }} | docker login ${{ vars.ACR_NAME }}.azurecr.io -u ${{ vars.AZURE_CLIENT_ID }} --password-stdin
 
       - name: 현재 디렉토리 확인
         run: |
