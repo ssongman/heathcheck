@@ -19,7 +19,7 @@ on:
       TagVersion:
         description: 'Tag version for Docker image'
         required: true
-        default: 'latest'
+        default: 'v1.0.0'
         type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
