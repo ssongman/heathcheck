@@ -28,8 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      IMAGE_NAME: ${{vars.ACR_NAME}}.azurecr.io/${{vars.PERSONAL_ID}}/healthcheck:${{ github.event.inputs.TagVersion }} 
-
+      IMAGE_NAME: ${{ vars.ACR_NAME }}.azurecr.io/${{ vars.PERSONAL_ID }}/healthcheck:${{ github.event.inputs.TagVersion }}
+      IMAGE_NAME_LATEST: ${{ vars.ACR_NAME }}.azurecr.io/${{ vars.PERSONAL_ID }}/healthcheck:latest
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -56,9 +57,17 @@ jobs:
           echo "IMAGE_NAME: "$IMAGE_NAME
           docker build -t $IMAGE_NAME .
 
+      - name: Tag image as latest
+        run: |
+          docker tag $IMAGE_NAME $IMAGE_NAME_LATEST
+
       - name: Push Docker image to ACR
         run: |
           docker push $IMAGE_NAME
+
+      - name: Push Docker image as latest
+        run: |
+          docker push $IMAGE_NAME_LATEST
 
       - name: Logout from Azure Container Registry
         run: |
