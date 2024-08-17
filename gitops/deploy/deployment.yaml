@@ -22,7 +22,7 @@ spec:
         #kubernetes.io/hostname: ktis-node04.container.ipc.kt.com
       containers:
       - name: healthcheck
-        image: 82023066/healthcheck:v1.0.0
+        image: cepgstapacr.azurecr.io/82023066/healthcheck:v1.0.0
         ports:
         - containerPort: 8080
         #readinessProbe:
