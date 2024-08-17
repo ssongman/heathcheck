@@ -38,6 +38,11 @@ jobs:
         run: |
           echo ${{ secrets.AZURE_CLIENT_SECRET }} | docker login ${{ secrets.ACR_NAME }}.azurecr.io -u ${{ secrets.AZURE_CLIENT_ID }} --password-stdin
 
+      - name: Check current directory and list files
+        run: |
+          pwd
+          ls -ltr
+    
       - name: Build Docker image
         run: |
           docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/healthcheck:${{ github.sha }} .
