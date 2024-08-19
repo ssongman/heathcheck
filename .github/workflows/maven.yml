@@ -9,10 +9,14 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      TagVersion:
+        description: 'Tag version for Docker image'
+        required: true
+        default: 'v1.0.0'
+        type: string
+
 
 jobs:
   build:
